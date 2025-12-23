@@ -1,17 +1,27 @@
-# Trabalho A2 de Séries Temporais: Modelagem Avançada e Multivariada
+# Séries Temporais: Análise de Volume e Impacto de Variáveis Exógenas
 
-Este repositório apresenta a evolução da análise iniciada na A1. Além da série de `volume`, incorporamos as variáveis exógenas `users` e `inv` para aprofundar a capacidade preditiva dos modelos.
+Este repositório documenta nossa jornada de modelagem estatística para a disciplina de Séries Temporais na FGV EMAp. O projeto foi estruturado em duas fases principais, evoluindo de uma compreensão univariada básica para sistemas preditivos multivariados complexos.
 
-Nesta etapa, exploramos técnicas de suavização exponencial (Holt/Holt-Winters) e modelos estatísticos (SARIMAX), utilizando validação *Walk-Forward* e diagnósticos rigorosos de resíduos.
+## Nossa Linha de Raciocínio
 
-* **[Relatório Executivo Atualizado (PDF)](Relatório_A2_Series_Temporais.pdf)**: Um resumo de 5 páginas com a metodologia, principais resultados e conclusões do projeto.
-* **[Análise Completa (Jupyter Notebook)](trabalho_a2.ipynb)**: Pipeline completo contendo decomposição STL, testes de estacionariedade e comparação de performance dos modelos.
+A análise foi guiada pelo rigor estatístico, seguindo este fluxo de implementação:
+
+### Fase 1: Análise Exploratória e Suavização (A1)
+Iniciamos com o tratamento de uma série temporal de volume, onde realizamos a decomposição STL para isolar tendência, sazonalidade e ruído. Nesta etapa, exploramos a modelagem via Suavização Exponencial Simples e o método de Holt, buscando capturar a tendência de crescimento dos dados. A validação inicial nos permitiu entender a inércia da série e a estabilidade dos parâmetros de suavização.
+
+### Fase 2: Modelagem Avançada e SARIMAX (A2)
+Na segunda fase, elevamos a complexidade ao incorporar variáveis exógenas (`users` e `inv`). Nossa hipótese foi que o volume não era apenas dependente de seu passado, mas também do fluxo de usuários e investimentos. 
+- **Estacionariedade:** Aplicamos testes de Dickey-Fuller Aumentado (ADF) e realizamos as diferenciações necessárias para estabilizar a variância e a média.
+- **Modelagem:** Implementamos modelos SARIMAX para capturar tanto a sazonalidade sazonal quanto o impacto imediato das variáveis externas. 
+- **Validação:** Utilizamos a técnica de *Walk-Forward Validation*, que simula o uso real do modelo em produção, prevendo um passo à frente e re-treinando o modelo, o que nos deu métricas de erro (MAE e RMSE) muito mais confiáveis.
+
+## Conclusões Técnicas
+Através do diagnóstico de resíduos (Ljung-Box e análise de normalidade), garantimos que os modelos não estavam deixando informações "na mesa". A inclusão de variáveis exógenas provou-se fundamental para reduzir o erro de previsão, demonstrando que o volume de transações é fortemente correlacionado ao engajamento da base de usuários.
 
 ## Integrantes
-
-* Guilherme Carvalho
-* Guilherme Buss
-* Gustavo Bianchi
-* João Gabriel
-* Luís Felipe Marciano
-* Vinícius Nascimento
+* **Gustavo Bianchi**
+* **Guilherme Buss**
+* **Guilherme Carvalho**
+* **João Gabriel**
+* **Luís Felipe Marciano**
+* **Vinícius Nascimento**
